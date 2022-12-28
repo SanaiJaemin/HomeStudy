@@ -5,21 +5,24 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //[SerializeField]
-    //public float CurrentHp { get; set; }
-    //[SerializeField]
-    //public float MaxHp { get; set; }
-    public float CurrentHp;
-    public float MaxHp;
+
+    public float CurrentHp { get; set; }
+    public float MaxHp { get; set; }
     public float Speed { get; set; }
-    protected float attack;
+    public float attack { get; set; }
+    public float Defense { get; set; }
+
+    public bool SkillOn { get; set; }
+
+    public int SkillTurn { get; set; }
     [SerializeField]
     TextMeshProUGUI Text;
     void Awake()
     {
         MaxHp = 100f;
         CurrentHp = MaxHp;
+        Defense = 2f;
+        SkillTurn = 3;
         
     }
     void FixedUpdate()
@@ -34,9 +37,29 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(float Damage)
     {
-        CurrentHp -= Damage;
-        string DamageUi = "-" + Damage.ToString();
+        float totalDamage = Damage - Defense;
+        CurrentHp -= totalDamage;
+        string DamageUi = "-" + totalDamage.ToString();
         Text.text = DamageUi;
+    }
+
+    public void TurnDown(int Count)
+    {
+        SkillTurn -= Count;
+    }
+
+    public void TurnUp(int Count)
+    {
+        if (SkillTurn == 0)
+        {
+
+            SkillTurn += Count;
+        }
+    }
+
+    public void HpRegenation()
+    {
+        CurrentHp += (MaxHp*0.2f);
     }
 
     

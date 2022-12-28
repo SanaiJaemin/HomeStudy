@@ -463,6 +463,8 @@ GameObject:
   - component: {fileID: 1977143485943345230}
   - component: {fileID: 311722442939013161}
   - component: {fileID: 4359053536749460532}
+  - component: {fileID: 8661072427387779238}
+  - component: {fileID: 8153446339180396364}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -579,8 +581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9782040c99485d428b6e61a14acc480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHp: 0
-  MaxHp: 0
   Text: {fileID: 4966646620897524600}
   target: {fileID: 0}
   GunPivot: {fileID: 3353815830170139591}
@@ -597,8 +597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec0b096f42326d4f90d99d656d48fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHp: 0
-  MaxHp: 0
   Text: {fileID: 0}
 --- !u!114 &4359053536749460532
 MonoBehaviour:
@@ -614,6 +612,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hpbar: {fileID: 7172279579005537209}
   attackbar: {fileID: 8401153849839318865}
+--- !u!114 &8661072427387779238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4990287826899032575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500572c312b1c5049b0181f1685898b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8153446339180396364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4990287826899032575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b1a48f7b9ea8d40b84e22a1d15338d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5234688432138900933
 GameObject:
   m_ObjectHideFlags: 0

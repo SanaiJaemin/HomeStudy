@@ -7,8 +7,6 @@ public class PlayerRespawn : MonoBehaviour
     [SerializeField]
     private GameObject PlayerPrefab;
     int maxplayerCount = 2;
-    float maxRange = 5;
-
     // Start is called before the first frame update
 
     void OnEnable()
@@ -20,6 +18,16 @@ public class PlayerRespawn : MonoBehaviour
             GameObject Player = Instantiate(PlayerPrefab, Randompos, transform.rotation);
             string text = i.ToString();
             Player.gameObject.tag = text;
+            if(Player.gameObject.tag == "0")
+            {
+                Player.gameObject.GetComponent<Player1Skill>().enabled = true;
+                Player.gameObject.GetComponent<Player2Skill>().enabled = false;
+            }
+            else if (Player.gameObject.tag == "1")
+            {
+                Player.gameObject.GetComponent<Player1Skill>().enabled = false;
+                Player.gameObject.GetComponent<Player2Skill>().enabled = true;
+            }
             Player.GetComponent<PlayerStats>().Speed = Random.Range(1, 3);
         }
       

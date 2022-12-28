@@ -11,12 +11,12 @@ public class PlayerAttack : PlayerStats
     Transform GunPivot;
     [SerializeField]
     GameObject BulletPrefabs;
-
     private string mytag;
-  
+
+    public bool Skillshot {get;set;}
 
     void Start()
-    {
+    { 
         target = null;
         mytag = gameObject.tag;
         InvokeRepeating(nameof(TargetSencer), 0, 0.3f);
@@ -25,7 +25,7 @@ public class PlayerAttack : PlayerStats
     // Update is called once per frame
 
    
-    void TargetSencer()
+    void TargetSencer() // 타켓탐지
     {
         
         
@@ -41,17 +41,27 @@ public class PlayerAttack : PlayerStats
         }
     }
 
-    public void BulletShot()
+    public void BulletShot() // 평타
     {
         
         transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
-        attack = Random.Range(10, 20);
+        if(Skillshot == false)
+        {
+        attack = Random.Range(10, 15);
+        }
         GameObject bullet = Instantiate(BulletPrefabs, GunPivot.position, Quaternion.identity);
         bullet.GetComponent<BulletMove>().Target = target;
         bullet.GetComponent<BulletMove>().BulletDamage = attack;
         bullet.GetComponent<BulletMove>().Myteam = gameObject.tag;
+        TurnDown(1);
+        Skillshot = false;
 
        
     }
+
+    // 플레이어 1 스킬 
+
+
+   
 
 }
